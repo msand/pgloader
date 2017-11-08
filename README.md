@@ -128,6 +128,15 @@ By default, the `Makefile` uses [SBCL](http://sbcl.org/) to compile your
 binary image, though it's possible to build using
 [CCL](http://ccl.clozure.com/).
 
+To get a version for a different platform, change the linuxx86 to one of darwinx86, freebsdx86, solarisx86, windows, or linuxarm.
+
+    $ svn co http://svn.clozure.com/publicsvn/openmcl/release/1.11/linuxx86/ccl
+    $ sudo cp -r ccl/ /usr/local/src
+    $ sudo cp /usr/local/src/ccl/scripts/ccl64 /usr/local/bin
+    $ sudo cp /usr/local/src/ccl/scripts/ccl /usr/local/bin/ccl32
+    $ apt-get install sbcl unzip libsqlite3-dev make curl gawk freetds-dev libzip-dev
+    $ git clone https://github.com/dimitri/pgloader.git
+    $ cd pgloader
     $ make CL=ccl pgloader
 
 If using `SBCL` and it supports core compression, the make process will
